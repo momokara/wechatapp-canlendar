@@ -1,2 +1,1 @@
-<view class="intro">欢迎使用代码片段，可在控制台查看代码片段的说明和文档</view>
 <calendar year="2018" month="10" markDay="{{selectedDay}}" bind:nextMonth="changeMonth" bind:tapday="tapday" bind:lastMonth="changeMonth"></calendar>

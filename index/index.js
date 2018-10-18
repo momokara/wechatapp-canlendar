@@ -4,24 +4,13 @@ const app = getApp()
 
 Page({
   data: {
-    selectedDay: [{
-        day: 2018911,
-        info: '2018911'
-      },
+    selectedDay: [
+      20181004,
+      20181018,
       {
-        day: 20180930,
-        info: '20180930'
-      },
-      {
-        day: 20181020,
-        info: '20181020'
-      },
-      {
-        day: 20181101,
-        info: '20181101'
-      },
-      20181102,
-      20181102,
+        day: 20181022,
+        info:'info22'
+      }
     ]
   },
   onLoad: function () {

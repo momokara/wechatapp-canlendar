@@ -1,7 +1,7 @@
 <view class='wrap'>
   <view>
     <view class='hearder-date-title'>
-      {{year}}年{{month}}月
+      <view class="header-date">{{monthname[month-1]}}月 {{year}}年</view>
       <view class='lt-arrow' bindtap='lastMonth'>lastMonth</view>
       <view class='rt-arrow' bindtap='nextMonth'>nextMonth</view>
     </view>
@@ -13,7 +13,7 @@
     </view>
   </view>
   <view class='date-box'>
-    <view wx:for='{{dateArr}}' wx:key="{{item}}" class='{{isToday == item.isToday ? "nowDay" : ""}} {{item.isSelected ? "Selected" : ""}} {{item.isActMonth ? "ActMonth" : "deActMonth"}}' id="day-{{item.isToday}}" data-date='{{item.isToday}}' bindtap="tapdata">
+    <view wx:for='{{dateArr}}' wx:key="{{item}}" class='{{isToday == item.isToday ? "nowDay" : ""}} {{item.isSelected ? "Selected" : ""}} {{item.isActMonth ? "ActMonth" : "deActMonth"}}   {{(startDay<item.isToday && item.isToday<endDay) ? "between" : ""}} {{startDay==item.isToday?"startDay":""}}  {{endDay==item.isToday?"endDay":""}}' id="day-{{item.isToday}}" data-date='{{item.isToday}}' bindtap="tapdata">
       <view class='date-head'>
         <view>{{item.dateNum}}</view>
       </view>

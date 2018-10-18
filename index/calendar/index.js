@@ -7,6 +7,8 @@ const defaultMonth = defaultNow.getMonth()
 const defaultNowday = defaultNow.getDay()
 let _year;
 let _month;
+let startDay;
+let endDay;
 
 Component({
   /**
@@ -36,7 +38,7 @@ Component({
     },
     isShowDayInfo: {
       type: Boolean,
-      value: true
+      value: false
     }
   },
 
@@ -45,10 +47,13 @@ Component({
    */
   data: {
     date: ['日', '一', '二', '三', '四', '五', '六'],
+    monthname: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'],
     dateArr: [],
     isToday: 0,
     isTodayWeek: false,
-    todayIndex: 0
+    todayIndex: 0,
+    startDay: 0,
+    endDay: 0
   },
 
   // 初始化加载
@@ -67,7 +72,6 @@ Component({
       let arrLen = 0; //dateArr的数组长度
       let now = setYear ? new Date(setYear, setMonth) : new Date();
       let year = setYear || now.getFullYear();
-      let nextYear = 0;
       let month = setMonth || now.getMonth(); //没有+1方便后面计算当月总天数   
       // 处理月份溢出
       if (month + 1 > 12) {
@@ -110,15 +114,20 @@ Component({
         }
         // 处理选中和info
         if (this.data.markDay.length > 0) {
-          this.data.markDay.filter((e) => {
-            if (e.day) {
-              if (e.day == today) {
-                isselected = true;
-                day_info = e.info;
-                return true;
-              }
-            } else if (e == today) {
+          let _arrMarkDay = this.data.markDay;
+          // 排序日期
+          _arrMarkDay.sort((a, b) => {
+            let _na = a.day ? a.day : a;
+            let _nb = b.day ? b.day : b;
+            return _na - _nb;
+          })
+          _arrMarkDay.filter((e) => {
+            startDay = _arrMarkDay[0].day ? _arrMarkDay[0].day : _arrMarkDay[0];
+            endDay = _arrMarkDay[_arrMarkDay.length - 1].day ? _arrMarkDay[_arrMarkDay.length - 1].day : _arrMarkDay[_arrMarkDay.length - 1];
+            let _day = e.day ? e.day : e;
+            if (_day == today) {
               isselected = true;
+              day_info = e.info;
               return true
             }
           })
@@ -132,12 +141,14 @@ Component({
         }
         dateArr[i] = obj;
       }
-
       this.setData({
         year: year,
         month: month + 1,
-        dateArr: dateArr
+        dateArr: dateArr,
+        startDay: startDay,
+        endDay: endDay
       })
+
       _year = year ? year : _year;
       _month = month ? month : _month;
 
@@ -156,6 +167,8 @@ Component({
           todayIndex: -1
         })
       }
+
+
     },
     lastMonth: function () {
       //全部时间的月份都是按0~11基准，显示月份才+1
