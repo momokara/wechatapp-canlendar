@@ -195,8 +195,8 @@ Component({
         month: (month + 1)
       })
     },
-    tapdata: function (e) {
-      this.triggerEvent('tapday', {
+    tapDay: function (e) {
+      this.triggerEvent('tapDay', {
         type: 'tapday',
         tapid: e.currentTarget.id,
         date: e.currentTarget.dataset.date
