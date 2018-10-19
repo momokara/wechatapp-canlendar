@@ -1,5 +1,6 @@
 # wechatapp-canlendar
-一个微信小程序的日期组件 -😊
+一个微信小程序的日期组件 -😊    
+![image](https://raw.githubusercontent.com/momokara/wechatapp-canlendar/master/screen.png)
 ## 接受的参数
 ```
    properties: {
