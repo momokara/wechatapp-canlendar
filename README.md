@@ -34,7 +34,7 @@
     month: 当前显示的月份
   }
   
- tapdata:  返回:e.deatil 包含 
+ tapDay:  返回:e.deatil 包含 
   {
     type: 'tapDay', //事件tpye
     tapid: 点击的domid,         
