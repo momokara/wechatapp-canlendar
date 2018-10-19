@@ -23,12 +23,7 @@ Component({
     // 默认显示的月份
     month: {
       type: Number,
-      value: defaultMonth
-    },
-    // 默认显示的月份
-    month: {
-      type: Number,
-      value: defaultMonth
+      value: defaultMonth+1
     },
     // 标记选中的时间 可以在info 中标记内容
     // {day:Number 日期 ,info:String 消息内容}
@@ -57,8 +52,8 @@ Component({
   },
 
   // 初始化加载
-  ready: function () {
-    this._dateInit(this.data.year, this.data.month - 1);
+  ready: function () {   
+    this._dateInit(this.data.year, this.data.month-1);
     this.setData({
       isToday: '' + defaultYear + (defaultMonth + 1) + defaultNow.getDate()
     })
@@ -145,8 +140,8 @@ Component({
         year: year,
         month: month + 1,
         dateArr: dateArr,
-        startDay: startDay,
-        endDay: endDay
+        startDay: startDay ? startDay : '',
+        endDay: endDay ? endDay : ''
       })
 
       _year = year ? year : _year;
