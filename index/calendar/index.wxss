@@ -4,31 +4,30 @@
 
 .hearder-date-title {
   position: relative;
-  width: 700rpx;
-  font-family: PingFang-SC-Regular;
-  font-size: 40rpx;
+  width: 620rpx;
+  margin: 0px auto 15px auto;
+  font-size: 14px;
   color: #282828;
   text-align: left;
-  margin: 10rpx auto;
 }
 
 .lt-arrow, .rt-arrow {
   position: absolute;
   top: 1rpx;
-  height: 60rpx;
-}
-
-.lt-arrow image, .rt-arrow image {
-  width: 14rpx;
-  height: 26rpx;
+  height: 20px;
+  background-color: #f7f8fc;
+  color: #6bb72d;
+  line-height: 20px;
+  padding: 0px 10px;
+  border-radius: 10px;
 }
 
 .lt-arrow {
-  left: 300rpx;
+  right: 140rpx;
 }
 
 .rt-arrow {
-  right: 10rpx;
+  right: 0rpx;
 }
 
 /* 星期 行  */
@@ -42,22 +41,13 @@
   display: inline-block;
   width: 14.285%;
   color: #333;
-  font-size: 30rpx;
+  font-size: 16px;
   text-align: center;
-  border-bottom: 1px solid #d0d0d0;
   padding: 10rpx 0;
 }
 
 .weekMark {
-  position: relative;
-}
-
-.weekMark view {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  border-bottom: 1px solid #22a7f6;
+  border-bottom: 1px solid #60b848;
 }
 
 /* 日期 */
@@ -72,12 +62,12 @@
   position: relative;
   display: inline-block;
   width: 14.285%;
-  font-size: 40rpx;
+  font-size: 16px;
   text-align: center;
   vertical-align: middle;
   margin: 5rpx 0;
-  height: 70rpx;
-  line-height: 70rpx;
+  height: 50rpx;
+  line-height: 50rpx;
 }
 
 .date-box .deActMonth {
@@ -91,28 +81,40 @@
 .date-box .Selected {
   background-color: #e1efd5;
   box-sizing: border-box;
+  position: relative;
 }
 
-.date-box .Selected .date-head {
-  width: 70rpx;
-  height: 70rpx;
-  line-height: 70rpx;
+.Selected .date-head {
+  position: absolute;
+  top: -5rpx;
+  right: 50%;
+  margin-right: -30rpx;
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
   border-radius: 50%;
   color: #fff;
   background-color: #60b848;
-  margin: 0 auto;
 }
 
 .date-box .startDay {
   border-radius: 50% 0 0 50%;
   width: 10%;
-  /* margin-left: 4.285%; */
+  margin-left: 4.285%;
+}
+
+.date-box .startDay .date-head {
+  right: 72%;
 }
 
 .date-box .endDay {
   border-radius: 0 50% 50% 0;
   width: 10%;
   margin-right: 4.285%;
+}
+
+.date-box .endDay .date-head {
+  right: 28%;
 }
 
 .nowDay .date-head {
